@@ -26,14 +26,19 @@ sudo ufw deny from 10.0.0.2 proto tcp to 192.168.75.2 port 443
 ## What will be installed:
 
 Resolvconf: To be sure the dns conf won't change
+
 Syslog-ng: To manage wireguard logs
+
 Ufw: For the firewalling
+
 Wireguard: Obviously
 
 ## Where are stored the clients configuration and keys:
 
- All the configuration are stored in /etc/wireguard/
+All the configuration are stored in /etc/wireguard/
+
 wg.json: is where ZWireguard store informations
+
 <your_vpn_name>.conf: is the configuration of your vpn
 
 ```
@@ -53,6 +58,7 @@ adm # > Directory of the VPN named "adm"
 ## Log files:
 
 /var/log/wireguard.log: See all wireguard logs
+
 /var/log/wireguard_client.log : See only when client connect and disconnect from the vpn
 
 ## Proof Of Concept:
