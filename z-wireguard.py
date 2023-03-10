@@ -203,8 +203,7 @@ def loop():
                     break
 
             ip_public = urllib.request.urlopen('https://ident.me').read().decode('utf8')
-            #endpoint = input(blue+"Please enter the endpoint IP or Domain [default: "+ip_public+"]:\n"+red+"> "+neutral)
-            endpoint = input(blue+"Please enter the endpoint IP or Domain [default: hide for the demo ;)]:\n"+red+"> "+neutral)
+            endpoint = input(blue+"Please enter the endpoint IP or Domain [default: "+ip_public+"]:\n"+red+"> "+neutral)
 
             if endpoint == "": endpoint = ip_public
 
