@@ -58,4 +58,4 @@ adm # > Directory of the VPN named "adm"
 
 ## Proof Of Concept:
 
-![z-wireguard](![image](https://user-images.githubusercontent.com/32988752/230694605-009d35e3-19e0-448f-b5c0-edba9034430e.png))
+![z-wireguard]([![image](https://user-images.githubusercontent.com/32988752/230694605-009d35e3-19e0-448f-b5c0-edba9034430e.png](https://github.com/guillaumezisa/Z-Wireguard/blob/8f9084d6a106f678e897185d424ed17d0f066722/z-wireguard.gif)))
