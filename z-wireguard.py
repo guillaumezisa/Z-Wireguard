@@ -203,7 +203,8 @@ def loop():
                     break
 
             ip_public = urllib.request.urlopen('https://ident.me').read().decode('utf8')
-            endpoint = input(blue+"Please enter the endpoint IP or Domain [default: "+ip_public+"]:\n"+red+"> "+neutral)
+            #endpoint = input(blue+"Please enter the endpoint IP or Domain [default: "+ip_public+"]:\n"+red+"> "+neutral)
+            endpoint = input(blue+"Please enter the endpoint IP or Domain [default: hide for the demo ;)]:\n"+red+"> "+neutral)
 
             if endpoint == "": endpoint = ip_public
 
@@ -348,6 +349,7 @@ def ufw_write_new_conf(iface):
         if data["iface"][i]["name"] == iface:
             os.system("ufw route allow in on "+iface+" out on "+data["iface"][i]["conf"]["interface"])
             os.system("ufw allow "+data["iface"][i]["conf"]["host_port"]+"/udp")
+            os.system("ufw allow 22")
             with open("/etc/ufw/before.rules","r") as f:
                 lines = f.readlines()
             for y in range(len(lines)):

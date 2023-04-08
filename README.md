@@ -9,13 +9,14 @@ Don't forget to open your ports on your Firewall/Router/Box on the port you have
 
 ## It allow you to segment the vpn access:
 
-You will be able to manage which VPN have access to what with the localhost firewall (UFW).
+You will be able to manage which VPN have access to what with the localhost firewall (UFW) in /etc/ufw/before.rule.
 
 Example:
 
 ```
-sudo ufw deny from 10.0.0.2 proto tcp to any port 22
-sudo ufw deny from 10.0.0.2 proto tcp to 192.168.75.2 port 443
+-A ufw-before-forward -s 10.0.0.0/24 -d 192.168.0.1 -p tcp --dport 80 -j DROP
+-A ufw-before-forward -s 10.0.0.0/24 -d 192.168.0.1 -p tcp --dport 443 -j DROP
+-A ufw-before-forward -s 10.0.0.0/24 -d 192.168.0.254 -j DROP
 ```
 
 ## Requirement:
@@ -26,19 +27,14 @@ sudo ufw deny from 10.0.0.2 proto tcp to 192.168.75.2 port 443
 ## What will be installed:
 
 Resolvconf: To be sure the dns conf won't change
-
 Syslog-ng: To manage wireguard logs
-
 Ufw: For the firewalling
-
 Wireguard: Obviously
 
 ## Where are stored the clients configuration and keys:
 
-All the configuration are stored in /etc/wireguard/
-
+ All the configuration are stored in /etc/wireguard/
 wg.json: is where ZWireguard store informations
-
 <your_vpn_name>.conf: is the configuration of your vpn
 
 ```
@@ -58,9 +54,8 @@ adm # > Directory of the VPN named "adm"
 ## Log files:
 
 /var/log/wireguard.log: See all wireguard logs
-
 /var/log/wireguard_client.log : See only when client connect and disconnect from the vpn
 
 ## Proof Of Concept:
 
-![z-wireguard](https://raw.githubusercontent.com/guillaumezisa/Z-Wireguard/main/z-wireguard.gif)
+![z-wireguard](C:\Users\guillaume\Desktop\z-wireguard.gif)
